@@ -50,7 +50,6 @@ var app = (function () {
     }
 
     function getUserParams(id) {
-        console.log(id);
         return new Promise(function(resolve, reject) {
             VK.Api.call('users.get', {user_id: id, fields: 'nickname,photo_100'}, function(data) {
                 if(!data.response) {
@@ -85,7 +84,6 @@ var app = (function () {
             changeAppState('loading');
             login()
                 .then(function (session) {
-                    console.log(session);
                     showInfo(session.mid);
                 })
                 .catch(function (e) {
